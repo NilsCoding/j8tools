@@ -7,7 +7,7 @@ import java.util.function.LongSupplier;
 
 /**
  * Supplier returning only prime numbers
- * @author Nils
+ * @author NilsCoding
  */
 public class PrimeLongPrimitiveSupplier implements LongSupplier {
 

@@ -5,7 +5,7 @@ import java.util.function.Consumer;
 /**
  * Consumer which distributes elements to other consumers
  * @author NilsCoding
- * @param <T>   type of consumer
+ * @param <T>   type of elements
  */
 public class RoundRobinConsumer<T> implements Consumer<T> {
 

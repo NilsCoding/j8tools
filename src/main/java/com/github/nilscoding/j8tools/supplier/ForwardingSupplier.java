@@ -6,7 +6,7 @@ import java.util.function.Supplier;
 /**
  * Decorator which forwards each generated element to a Consumer
  * @author NilsCoding
- * @param <T>   type of supplier
+ * @param <T>   type of elements
  */
 public class ForwardingSupplier<T> implements Supplier<T> {
 

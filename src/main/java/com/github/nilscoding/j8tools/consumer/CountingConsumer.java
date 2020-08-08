@@ -5,7 +5,7 @@ import java.util.function.Consumer;
 /**
  * Consumer which counts how many elements have been consumed and forwards them to another consumer
  * @author NilsCoding
- * @param <T>   type of consumer
+ * @param <T>   type of elements
  */
 public class CountingConsumer<T> implements Consumer<T> {
 

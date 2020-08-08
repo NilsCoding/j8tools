@@ -5,7 +5,7 @@ import java.util.function.Consumer;
 /**
  * Consumer which discards all consumed elements, so basically just a dummy
  * @author NilsCoding
- * @param <T>   type of consumer
+ * @param <T>   type of elements
  */
 public class DiscardingConsumer<T> implements Consumer<T> {
 

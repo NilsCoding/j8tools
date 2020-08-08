@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 /**
  * Consumer which randomly distributes the elements to other consumers
  * @author NilsCoding
- * @param <T>   type of consumer
+ * @param <T>   type of elements
  */
 public class RandomDistributionConsumer<T> implements Consumer<T> {
 

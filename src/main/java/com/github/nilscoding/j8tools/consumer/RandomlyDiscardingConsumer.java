@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 /**
  * Consumer which forwards to another consumer, but randomly discards elements
  * @author NilsCoding
- * @param <T>   type of consumer
+ * @param <T>   type of elements
  */
 public class RandomlyDiscardingConsumer<T> implements Consumer<T> {
 

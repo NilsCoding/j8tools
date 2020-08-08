@@ -5,7 +5,7 @@ import java.util.function.Consumer;
 /**
  * Consumer which forwards each consumed object to the given consumers
  * @author NilsCoding
- * @param <T>   type of consumer
+ * @param <T>   type of elements
  */
 public class SplittingConsumer<T> implements Consumer<T> {
 

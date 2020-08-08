@@ -3,10 +3,10 @@ package com.github.nilscoding.j8tools.supplier;
 import java.util.function.Supplier;
 
 /**
- * Supplier which returns the given instance over and over again<br/>
+ * Supplier which returns the given instance over and over again<br>
  * Please note that while the instance cannot be changed, the object might be modified internally
  * @author NilsCoding
- * @param <T>   type of supplier
+ * @param <T>   type of elements
  */
 public class InfiniteInstanceSupplier<T> implements Supplier<T> {
     

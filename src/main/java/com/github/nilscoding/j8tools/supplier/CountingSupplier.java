@@ -5,7 +5,7 @@ import java.util.function.Supplier;
 /**
  * Decorator that counts how many elements have been supplied
  * @author NilsCoding
- * @param <T>   type of supplier
+ * @param <T>   type of elements
  */
 public class CountingSupplier<T> implements Supplier<T> {
 
