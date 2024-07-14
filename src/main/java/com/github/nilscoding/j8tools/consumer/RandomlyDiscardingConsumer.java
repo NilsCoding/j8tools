@@ -4,36 +4,42 @@ import java.util.Random;
 import java.util.function.Consumer;
 
 /**
- * Consumer which forwards to another consumer, but randomly discards elements
+ * Consumer which forwards to another consumer, but randomly discards elements.
+ * @param <T> type of elements
  * @author NilsCoding
- * @param <T>   type of elements
  */
 public class RandomlyDiscardingConsumer<T> implements Consumer<T> {
 
-    protected Consumer<T> parentConsumer;
-    protected Random rnd = new Random(System.currentTimeMillis());
-    
     /**
-     * Creates a randomly discarding consumer
-     * @param parent    parent consumer to forward to
+     * Consumer.
      */
-    public RandomlyDiscardingConsumer(Consumer<T> parent) {
+    protected Consumer<T> parentConsumer;
+    /**
+     * Random.
+     */
+    protected Random rnd = new Random(System.currentTimeMillis());
+
+    /**
+     * Creates a randomly discarding consumer.
+     * @param parent parent consumer to forward to
+     */
+    public RandomlyDiscardingConsumer(final Consumer<T> parent) {
         this.parentConsumer = parent;
         this.rnd = new Random(System.currentTimeMillis());
     }
-    
+
     /**
-     * Creates a randomly discarding consumer
-     * @param random    random implementation
-     * @param parent    parent consumer to forward to
+     * Creates a randomly discarding consumer.
+     * @param random random implementation
+     * @param parent parent consumer to forward to
      */
-    public RandomlyDiscardingConsumer(Random random, Consumer<T> parent) {
+    public RandomlyDiscardingConsumer(final Random random, final Consumer<T> parent) {
         this.parentConsumer = parent;
         if (random != null) {
             this.rnd = random;
         }
     }
-    
+
     @Override
     public void accept(T t) {
         if (this.parentConsumer == null) {
@@ -43,5 +49,5 @@ public class RandomlyDiscardingConsumer<T> implements Consumer<T> {
             this.parentConsumer.accept(t);
         }
     }
-    
+
 }

@@ -3,20 +3,26 @@ package com.github.nilscoding.j8tools.supplier;
 import java.util.function.Supplier;
 
 /**
- * Decorator that counts how many elements have been supplied
+ * Decorator that counts how many elements have been supplied.
+ * @param <T> type of elements
  * @author NilsCoding
- * @param <T>   type of elements
  */
 public class CountingSupplier<T> implements Supplier<T> {
 
-    protected Supplier<T> parent;
-    protected long count = 0;
-    
     /**
-     * Creates a new counting supplier
-     * @param parentSupplier    parent supplier
+     * Supplier.
      */
-    public CountingSupplier(Supplier<T> parentSupplier) {
+    protected Supplier<T> parent;
+    /**
+     * Counter.
+     */
+    protected long count = 0;
+
+    /**
+     * Creates a new counting supplier.
+     * @param parentSupplier parent supplier
+     */
+    public CountingSupplier(final Supplier<T> parentSupplier) {
         if (parentSupplier == null) {
             throw new IllegalArgumentException("Parent supplier cannot be null.");
         }
@@ -24,18 +30,18 @@ public class CountingSupplier<T> implements Supplier<T> {
     }
 
     /**
-     * Returns the number of counted supply invocations
-     * @return  number of invocations
+     * Returns the number of counted supply invocations.
+     * @return number of invocations
      */
     public long getCount() {
         return count;
     }
-    
+
     @Override
     public T get() {
         T tmp = this.parent.get();
         this.count++;
         return tmp;
     }
-    
+
 }

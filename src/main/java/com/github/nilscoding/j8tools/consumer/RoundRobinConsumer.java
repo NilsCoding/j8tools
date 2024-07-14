@@ -3,27 +3,36 @@ package com.github.nilscoding.j8tools.consumer;
 import java.util.function.Consumer;
 
 /**
- * Consumer which distributes elements to other consumers
+ * Consumer which distributes elements to other consumers.
+ * @param <T> type of elements
  * @author NilsCoding
- * @param <T>   type of elements
  */
 public class RoundRobinConsumer<T> implements Consumer<T> {
 
+    /**
+     * Consumers.
+     */
     protected Consumer<? super T>[] consumers;
+    /**
+     * Number of consumers.
+     */
     protected int numConsumers = 0;
+    /**
+     * Current consumer index.
+     */
     protected int consumerIndex = -1;
 
     /**
-     * Creates a new Round-Robin Consumer
-     * @param consumers     consumers to forward to
+     * Creates a new Round-Robin Consumer.
+     * @param consumers consumers to forward to
      */
-    public RoundRobinConsumer(Consumer<? super T> ... consumers) {
+    public RoundRobinConsumer(final Consumer<? super T>... consumers) {
         this.consumers = consumers;
         if (this.consumers != null) {
             this.numConsumers = this.consumers.length;
         }
     }
-    
+
     @Override
     public void accept(T t) {
         if (this.numConsumers == 0) {
@@ -38,5 +47,5 @@ public class RoundRobinConsumer<T> implements Consumer<T> {
             consumer.accept(t);
         }
     }
-    
+
 }

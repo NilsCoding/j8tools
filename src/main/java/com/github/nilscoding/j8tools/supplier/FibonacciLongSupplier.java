@@ -3,21 +3,30 @@ package com.github.nilscoding.j8tools.supplier;
 import java.util.function.Supplier;
 
 /**
- * Fibonacci Long Supplier
+ * Fibonacci Long Supplier.
  * @author NilsCoding
  */
 public class FibonacciLongSupplier implements Supplier<Long> {
 
-    protected int n = 0;
-    protected long a = 0;
-    protected long b = 1;
-    
     /**
-     * Creates a Fibonacci supplier
+     * Value for n.
+     */
+    protected int n = 0;
+    /**
+     * Value for a.
+     */
+    protected long a = 0;
+    /**
+     * Value for b.
+     */
+    protected long b = 1;
+
+    /**
+     * Creates a Fibonacci supplier.
      */
     public FibonacciLongSupplier() {
     }
-    
+
     @Override
     public Long get() {
         if (this.n == 0) {
@@ -33,5 +42,5 @@ public class FibonacciLongSupplier implements Supplier<Long> {
         this.b = c;
         return c;
     }
-    
+
 }
