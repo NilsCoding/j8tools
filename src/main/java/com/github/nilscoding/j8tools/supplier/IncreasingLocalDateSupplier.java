@@ -20,12 +20,31 @@ public class IncreasingLocalDateSupplier implements Supplier<LocalDate> {
     protected Period period;
 
     /**
-     * Creates a new supplier with given start time and temporal amount to increase.
-     * @param startDateTime start time, null for now
-     * @param increaseBy    increase by, null for 1 day
+     * Creates a new supplier starting today and increases by one day.
      */
-    public IncreasingLocalDateSupplier(final LocalDate startDateTime, final Period increaseBy) {
-        this.dt = startDateTime;
+    public IncreasingLocalDateSupplier() {
+        this.dt = LocalDate.now();
+        this.period = Period.ofDays(1);
+    }
+
+    /**
+     * Creates a new supplier starting with given day and increases by one day.
+     * @param dt start date
+     */
+    public IncreasingLocalDateSupplier(LocalDate dt) {
+        this.dt = dt;
+        if (this.dt == null) {
+            this.dt = LocalDate.now();
+        }
+    }
+
+    /**
+     * Creates a new supplier with given start time and temporal amount to increase.
+     * @param startDte   start date, null for now
+     * @param increaseBy increase by, null for 1 day
+     */
+    public IncreasingLocalDateSupplier(final LocalDate startDte, final Period increaseBy) {
+        this.dt = startDte;
         if (this.dt == null) {
             this.dt = LocalDate.now();
         }

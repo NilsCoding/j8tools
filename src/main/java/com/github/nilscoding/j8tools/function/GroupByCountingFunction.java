@@ -42,6 +42,14 @@ public class GroupByCountingFunction<T> implements Function<T, Integer> {
         this.count = initialValue;
     }
 
+    /**
+     * Returns the count. This is the value that was last returned when {@link #apply(Object)} was invoked.
+     * @return last value
+     */
+    public int getCount() {
+        return this.count;
+    }
+
     @Override
     public Integer apply(T t) {
         this.groupCount++;
